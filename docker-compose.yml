@@ -16,6 +16,10 @@ services:
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - MYSQL_USER=${MYSQL_USER}
+    networks:
+      - nextcloud-network 
+
+
 
   app:
     image: nextcloud:23.0.3
@@ -31,3 +35,10 @@ services:
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_HOST=${MYSQL_HOST}
+        #- NEXTCLOUD_TRUSTED_DOMAINS=${NEXTCLOUD_TRUSTED_DOMAINS}
+    networks:
+      - nextcloud-network 
+
+
+networks:
+  nextcloud-network: 
